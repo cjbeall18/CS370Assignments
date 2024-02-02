@@ -73,6 +73,28 @@ int get_arr_size(int rand)
  */
 int get_running_count()
 {
+    int randNum = rand();
+    int numIterations = get_iteration_count(randNum);
+    int numMedianDivisible = 0;
+    int *array;
+    int median = 0;
 
-    // TODO: Implement this method.
+    for (int i = 0; i < numIterations; i++) {
+        randNum = rand();
+        int arraySize = get_arr_size(randNum);
+        array = (int*)malloc(arraySize * sizeof(int));
+
+        for (int j = 0; j < arraySize; j++) {
+            array[j] = rand();
+        }
+        
+        median = return_median(array, arraySize);
+
+        if (median % 13 == 0) {
+            numMedianDivisible++;
+        }
+
+    free(array);
+    }
+    return numMedianDivisible;
 }
